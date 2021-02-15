@@ -1,0 +1,107 @@
+﻿<Window x:Class="LibraryTry3.MainWindow"
+        xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+        xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+        xmlns:d="http://schemas.microsoft.com/expression/blend/2008"
+        xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006"
+        xmlns:local="clr-namespace:LibraryTry3"
+        xmlns:tools="clr-namespace:LibraryTry3.Tools"
+        xmlns:wpf="http://schemas.fontawesome.io/icons/"
+        mc:Ignorable="d"
+        Title="MainWindow" AllowsTransparency="True" 
+       
+        WindowStyle="None" WindowStartupLocation="CenterScreen"
+        ResizeMode="CanResizeWithGrip" Style="{StaticResource StyleBorder}"
+        Height="600" Width="600"
+        MouseDown="Window_MouseDown" 
+        SizeChanged="MainWindow_OnSizeChanged"
+        MouseDoubleClick="backNormal_Click"
+       >
+    <Window.Effect>
+        <DropShadowEffect ShadowDepth="5" BlurRadius="10" Opacity="0.6"/>
+    </Window.Effect>
+
+    <Grid>
+        <Grid.ColumnDefinitions>
+            <ColumnDefinition Width="*"/>
+            <ColumnDefinition Width="2*"/>
+            <ColumnDefinition Width="*"/>
+        </Grid.ColumnDefinitions>
+        <Grid.RowDefinitions>
+            <RowDefinition Height="*"/>
+            <RowDefinition Height="3*"/>
+            <RowDefinition Height="5*"/>
+            <RowDefinition Height="*"/>
+        </Grid.RowDefinitions>
+
+        <Grid Grid.Row="0" Grid.Column="0" Grid.ColumnSpan="3" Style="{StaticResource StyleBack}">
+            <DockPanel VerticalAlignment="Center" Margin="10,0,0,0">
+                <wpf:ImageAwesome Icon="Book" Width="30" Foreground="White" HorizontalAlignment="Left"></wpf:ImageAwesome>
+                <Label Name="lbLib" Foreground="White" Margin="10,0,0,0"> GLSC-Lib Library Management</Label>
+                <StackPanel HorizontalAlignment="Right" Orientation="Horizontal">
+                    <Button Name="btnMinus" Margin="0,0,10,0" Style="{StaticResource TransparentBtn}" Click="btnMinize_Click">
+                        <wpf:ImageAwesome Icon="Minus" Height="3" Width="15" Foreground="White" Stretch="Fill"></wpf:ImageAwesome>
+                    </Button>
+                    <Button Name="btnNormal" Margin="0,0,10,0" Style="{StaticResource TransparentBtn}" Click="btnNoraml_Click">
+                        <wpf:ImageAwesome Icon="File" Width="15" Foreground="White"></wpf:ImageAwesome>
+                    </Button>
+                    <Button Margin="0,0, 10,0" Style="{StaticResource TransparentBtn}" Click="btnClose_Click">
+                        <wpf:ImageAwesome Icon="Remove" Width="15" Foreground="White"></wpf:ImageAwesome>
+                    </Button>
+                </StackPanel>
+                
+            </DockPanel>
+            
+        </Grid>
+        <Grid Grid.Row="1" Grid.Column="1">
+            <StackPanel Orientation="Vertical" VerticalAlignment="Center">
+                <wpf:ImageAwesome Icon="Book" Width="30" Foreground="#0047a0"/>
+                <Label Content="Please Login" Foreground="#0047a0" FontSize="20" FontWeight="SemiBold" HorizontalContentAlignment="Center"/>
+            </StackPanel>
+        </Grid>
+        <Grid Grid.Row="2" Grid.Column="1">
+            <Grid.RowDefinitions>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+                <RowDefinition Height="Auto"/>
+            </Grid.RowDefinitions>
+            <Grid Grid.Row="0" >
+                <StackPanel Margin="30,0" Orientation="Vertical">
+                    <Label Content="User Type" Foreground="#0047a0"></Label>
+                    
+                    <ComboBox Name="comboUserType" Margin="0,0,0,0" Height="36" VerticalContentAlignment="Center">
+                        <ComboBoxItem Content="Reader"/>
+                        <ComboBoxItem Content="Administrator"/>
+                    </ComboBox>
+                    
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="1">
+                <StackPanel Margin="30,0"  Orientation="Vertical">
+                    <Label Content="ID" Foreground="#0047a0"></Label>
+                    <TextBox Name="txtID" Height="36" VerticalContentAlignment="Center"></TextBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="2">
+                <StackPanel Margin="30,0"  Orientation="Vertical">
+                    <Label Content="Password" Foreground="#0047a0"></Label>
+                    
+                    <PasswordBox Name="txtPsd" Height="36" VerticalContentAlignment="Center"></PasswordBox>
+                </StackPanel>
+            </Grid>
+            <Grid Grid.Row="3">
+                <StackPanel Margin="30,30,30,0" VerticalAlignment="Bottom">
+                    <Button Content="Forget password?" FontSize="10" Margin="50,5"
+                            Style="{StaticResource BtnTriggerStyle}"></Button>
+                    <Button Content="Login"  Height="36" Style="{StaticResource CustomBtn}" Name="btnLogin" Click="btnLogin_Click"></Button>
+                </StackPanel>
+                
+            </Grid>
+
+        </Grid>
+        <Grid Grid.Row="3" Grid.Column="0" Grid.ColumnSpan="2" VerticalAlignment="Bottom">
+            <Label Content="Wei Chen &amp; Yaguang Liu Copyright reserved" FontSize="10" Foreground="#0047a0"></Label>
+        </Grid>
+        
+    </Grid>
+</Window>

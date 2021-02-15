@@ -1,0 +1,275 @@
+﻿<UserControl x:Class="LibraryTry3.Views.ReaderView"
+             xmlns="http://schemas.microsoft.com/winfx/2006/xaml/presentation"
+             xmlns:x="http://schemas.microsoft.com/winfx/2006/xaml"
+             xmlns:mc="http://schemas.openxmlformats.org/markup-compatibility/2006" 
+             xmlns:d="http://schemas.microsoft.com/expression/blend/2008" 
+             xmlns:local="clr-namespace:LibraryTry3.Views"
+             xmlns:wpf="http://schemas.fontawesome.io/icons/"
+             xmlns:xctk="http://schemas.xceed.com/wpf/xaml/toolkit" 
+             mc:Ignorable="d" 
+             d:DesignHeight="450" d:DesignWidth="800"
+             >
+    <Grid>
+        <TabControl>
+            <TabItem Header="Add Reader" Height="30">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="5*"/>
+                        <ColumnDefinition Width="80*"/>
+                        <ColumnDefinition Width="15*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="20*"/>
+                        <RowDefinition Height="60*"/>
+                        <RowDefinition Height="20*"></RowDefinition>
+                        
+                    </Grid.RowDefinitions>
+                    <TextBlock Grid.Row="0" Grid.Column="1" 
+                               Text="Add Reader" 
+                               VerticalAlignment="Center" 
+                               HorizontalAlignment="Center"
+                               FontSize="20"
+                               FontWeight="SemiBold"/>
+                    
+                    <Grid Grid.Row="1" Grid.Column="1">
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                            <ColumnDefinition Width="*"/>
+                            <ColumnDefinition Width="2*"/>
+                        </Grid.ColumnDefinitions>
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                            <RowDefinition Height="*"/>
+                        </Grid.RowDefinitions>
+                        <Label Grid.Row="0" Grid.Column="0" Content="ID" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Column="1" Grid.Row="0" Style="{StaticResource CustomText}" Name="txtID"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="0" Content="First Name" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="1" Style="{StaticResource CustomText}" Name="txtFirst"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="0" Content="Last Name" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="1" Style="{StaticResource CustomText}" Name="txtLast"></TextBox>
+                        <Label Grid.Row="3" Grid.Column="0" Content="Gender" Style="{StaticResource BookLabelText}"></Label>
+                        <ComboBox Grid.Row="3" Grid.Column="1" Margin="0,8" Name="comboGender"></ComboBox>
+                        <Label Grid.Row="4" Grid.Column="0" Content="Birth Date" Style="{StaticResource BookLabelText}"></Label>
+                        <DatePicker Grid.Row="4" Grid.Column="1" VerticalContentAlignment="Center" Margin="0,8" Name="birthDatePicker"></DatePicker>
+                        <Label Grid.Row="5" Grid.Column="0" Content="Start Date" Style="{StaticResource BookLabelText}"></Label>
+                        <DatePicker Grid.Row="5" Grid.Column="1" VerticalContentAlignment="Center" Margin="0,8" Name="startDatePiker"></DatePicker>
+                        <Label Grid.Row="6" Grid.Column="0" Content="Phone" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="6" Grid.Column="1" Style="{StaticResource CustomText}" Name="txtPhone"></TextBox>
+                        <Label Grid.Row="7" Grid.Column="0" Content="Email" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="7" Grid.Column="1" Style="{StaticResource CustomText}" Name="txtEmail"></TextBox>
+                        <Label Grid.Row="0" Grid.Column="2" Content="Room No." Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="0" Grid.Column="3" Style="{StaticResource CustomText}" Name="txtRoomNo"></TextBox>
+                        <Label Grid.Row="1" Grid.Column="2" Content="Street 1" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="1" Grid.Column="3" Style="{StaticResource CustomText}" Name="txtStreet1"></TextBox>
+                        <Label Grid.Row="2" Grid.Column="2" Content="Street 2" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="2" Grid.Column="3" Style="{StaticResource CustomText}" Name="txtStreet2"></TextBox>
+                        <Label Grid.Row="3" Grid.Column="2" Content="City" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="3" Grid.Column="3" Style="{StaticResource CustomText}" Name="txtCity"></TextBox>
+                        <Label Grid.Row="4" Grid.Column="2" Content="Province" Style="{StaticResource BookLabelText}"></Label>
+                        <ComboBox Grid.Row="4" Grid.Column="3" Margin="0,8" Name="comboProvince"></ComboBox>
+                        <Label Grid.Row="5" Grid.Column="2" Content="Postal Code" Style="{StaticResource BookLabelText}"></Label>
+                        <TextBox Grid.Row="5" Grid.Column="3" Style="{StaticResource CustomText}" Name="txtPostcode"></TextBox>
+
+                        <Label Grid.Row="6" Grid.Column="2" Grid.RowSpan="2" Content="Photo" Style="{StaticResource BookLabelText}"/>
+                        <Button Grid.Column="3" Grid.Row="6"  Grid.RowSpan="2" Name="btnReaderPhoto" 
+                                Style="{StaticResource ImageBtnStyle}"
+                                Click="BtnReaderPhoto_OnClick">
+                            <Grid>
+                                <TextBlock Name="txtPhoto" Text="Upload a photo"></TextBlock>
+                                <Image Name="readerPhoto"></Image>
+                            </Grid>
+                        </Button>
+
+                    </Grid>
+                    <StackPanel Grid.Row="2" Grid.Column="1" Orientation="Horizontal" HorizontalAlignment="Right">
+                        <Button Content="Add" Style="{StaticResource AddBtnStyle}" Name="btn_AddReader" Click="Btn_AddReader_OnClick">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF696565" Opacity="0.595" ShadowDepth="3"/>
+                            </Button.Effect>
+                        </Button>
+                        <Button Content="Clear" Style="{StaticResource ClearBtnStyle}"
+                                Name="btn_clear_reader"
+                                Click="Btn_clear_reader_OnClick">
+                            <Button.Effect>
+                                <DropShadowEffect Color="#FF696565" Opacity="0.595" ShadowDepth="3"/>
+                            </Button.Effect>
+                        </Button>
+                    </StackPanel>
+                </Grid>
+
+            </TabItem>
+
+            <TabItem Header="Manage Reader">
+                <Grid>
+                    <Grid.ColumnDefinitions>
+                        <ColumnDefinition Width="7*"/>
+                        <ColumnDefinition Width="3*"/>
+                    </Grid.ColumnDefinitions>
+                    <Grid.RowDefinitions>
+                        <RowDefinition Height="7*"/>
+                        <RowDefinition Height="53*"/>
+                        <RowDefinition Height="40*"/>
+                    </Grid.RowDefinitions>
+                    <Grid Grid.Column="0" Grid.Row="0" Style="{StaticResource StyleBack}"
+                          >
+                        <Grid.ColumnDefinitions>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="63*"/>
+                            <ColumnDefinition Width="8*"/>
+                            <ColumnDefinition Width="5*"/>
+                        </Grid.ColumnDefinitions>
+                        <Button Grid.Column="0" Style="{StaticResource TransparentBtn}"
+                                Name="btn_refresh_readers"
+                                Click="Btn_refresh_readers_OnClick">
+                            <StackPanel VerticalAlignment="Center" HorizontalAlignment="Left"
+                                        Orientation="Horizontal">
+                                <wpf:ImageAwesome Icon="Refresh" Height="12" Foreground="White"
+                                                  Margin="5,0,0,0"/>
+                                <Label Content="Refresh" Foreground="White"></Label>
+                            </StackPanel>
+                        </Button>
+                        <Button Grid.Column="1" Style="{StaticResource TransparentBtn}"
+                                Name="btn_edit_reader"
+                                Click="Btn_edit_reader_OnClick">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center">
+                                <wpf:ImageAwesome Icon="Edit"
+                                                  Foreground="white"
+                                                  Height="12"/>
+                                <Label Content="Edit" Foreground="White"></Label>
+                            </StackPanel>
+                        </Button>
+
+                        <Button Grid.Column="2" Style="{StaticResource TransparentBtn}"
+                                Name="btn_delete_reader"
+                                Click="Btn_delete_reader_OnClick">
+                            <StackPanel Orientation="Horizontal"
+                                        VerticalAlignment="Center"
+                                        Grid.Column="2">
+                                <wpf:ImageAwesome Icon="Trash"
+                                                  Foreground="white"
+                                                  Height="12"/>
+                                <Label Content="Delete" Foreground="White"></Label>
+                            </StackPanel>
+                        </Button>
+                        
+                        
+                        <TextBlock Grid.Column="3" Text="Reader List" Foreground="white" HorizontalAlignment="Center"
+                                   VerticalAlignment="Center"></TextBlock>
+                        <TextBox Grid.Column="4" Margin="0,10"/>
+                        <Button Grid.Column="5" Style="{StaticResource TransparentBtn}"
+                                HorizontalAlignment="Left"
+                                Margin="5,0,0,0">
+                            <wpf:ImageAwesome Icon="SearchPlus" Height="12" Foreground="white"></wpf:ImageAwesome>
+                        </Button>
+                        
+
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="1">
+                        <DataGrid Name="ReaderDataGrid" AutoGenerateColumns="False" 
+                                  AlternatingRowBackground="#eef6ff" 
+                                  SelectionChanged="ReaderDataGrid_OnSelectionChanged"
+                                  IsReadOnly="True"
+                                  MouseLeftButtonDown="ReaderDataGrid_OnMouseLeftButtonDown">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="ID" Width="*" Binding="{Binding Path=ReaderID}"/>
+                                <DataGridTextColumn Header="First Name" Width="*" Binding="{Binding Path=FirstName}"/>
+                                <DataGridTextColumn Header="Last Name" Width="*" Binding="{Binding Path=LastName}"/>
+                                <DataGridTextColumn Header="Gender" Width="*" Binding="{Binding Path=Gender}"/>
+                                <DataGridTextColumn Header="Birth Date" Width="*" Binding="{Binding Path=DateOfBirth, StringFormat={}{0:MM/dd/yyyy}}"/>
+                                <DataGridTextColumn Header="Phone" Width="*" Binding="{Binding Path=Phone}"/>
+                                <DataGridTextColumn Header="Email" Width="*" Binding="{Binding Path=Email}"/>
+                                <DataGridTextColumn Header="Start Date" Width="*" Binding="{Binding Path=StartDate, StringFormat={}{0:MM/dd/yyyy}}"/>
+                                <DataGridTextColumn Header="Current Loan Num" Width="*" Binding="{Binding Path=CurrentLoanNum}"/>
+                                <DataGridTextColumn Header="Address" Width="3*" Binding="{Binding Path=Address}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid Grid.Column="0" Grid.Row="2">
+                        <DataGrid Name="LoanDataGrid" AutoGenerateColumns="False"
+                                  AlternatingRowBackground="#eef6ff"
+                                  IsReadOnly="True">
+                            <DataGrid.Columns>
+                                <DataGridTextColumn Header="Loan ID" Binding="{Binding LoanID}"/>
+                                <DataGridTextColumn Header="Reader ID" Binding="{Binding ReaderID}"/>
+                                <DataGridTextColumn Header="Book ID" Binding="{Binding BookID}"/>
+                                <DataGridTextColumn Header="Loan Date" Binding="{Binding LoanDate,StringFormat={}{0:MM/dd/yyyy}}"/>
+                                <DataGridTextColumn Header="Return Date" Binding="{Binding ReturnDate,StringFormat={}{0:MM/dd/yyyy}}"/>
+                            </DataGrid.Columns>
+                        </DataGrid>
+                    </Grid>
+                    <Grid Grid.Column="1" Margin="10,0,5,0"
+                          Grid.Row="0" Grid.RowSpan="3"
+                          >
+                        <Grid.RowDefinitions>
+                            <RowDefinition Height="7*"/>
+                            <RowDefinition Height="75*"/>
+                            <RowDefinition Height="8*"/>
+                            <RowDefinition Height="10*"/>
+                        </Grid.RowDefinitions>
+                        <Grid Grid.Row="0" Style="{StaticResource StyleBack}">
+                            <Label Content="Return Book"
+                                   VerticalAlignment="Center"
+                                   HorizontalAlignment="Center"
+                                   Foreground="white"></Label>
+                        </Grid>
+                        <Grid Grid.Row="1">
+                            <xctk:CheckListBox Name="borrowedBookCheckBox">
+                                <xctk:CheckListBox.ItemTemplate>
+                                    <DataTemplate>
+                                        
+                                        <Grid Height="120" Margin="5,0,5,15" >
+                                            <Grid.ColumnDefinitions>
+                                                <ColumnDefinition Width="120"/>
+                                                <ColumnDefinition Width="80"/>
+                                                <ColumnDefinition Width="Auto"/>
+                                            </Grid.ColumnDefinitions>
+                                            <Image Grid.Column="0" Source="{Binding Cover}"></Image>
+                                            <StackPanel Grid.Column="1" Orientation="Vertical">
+                                                <Label Content="Name:"/>
+                                                <Label Content="Author:"/>
+                                                <Label Content="ISBN:"/>
+                                                <Label Content="Call No.:"/>
+                                            </StackPanel>
+                                            <StackPanel Grid.Column="2" Orientation="Vertical">
+                                                <Label Content="{Binding BookName}"/>
+                                                <Label Content="{Binding Author}"/>
+                                                <Label Content="{Binding ISBN}"/>
+                                                <Label Content="{Binding CallNum}"/>
+                                            </StackPanel>
+                                            
+                                        </Grid>
+                                        
+                                    </DataTemplate>
+                                    
+                                    
+                                </xctk:CheckListBox.ItemTemplate>
+                                
+                            </xctk:CheckListBox>
+
+                        </Grid>
+                        <DatePicker Grid.Row="2" Margin="15,15,15,5" VerticalContentAlignment="Center"
+                                    Name="returnDatePicker"></DatePicker>
+                        <StackPanel Grid.Row="3" Orientation="Horizontal" HorizontalAlignment="Right" Margin="0,0,15,0">
+                            <Button Style="{StaticResource ClearBtnStyle}" Content="Renew"></Button>
+                            <Button Style="{StaticResource AddBtnStyle}" Content="Return" Name="btnReturn" 
+                                    Click="BtnReturn_OnClick"></Button>
+                        </StackPanel>
+                    </Grid>
+
+                </Grid>
+            </TabItem>
+            
+        </TabControl>
+
+    </Grid>
+</UserControl>
